@@ -1,0 +1,50 @@
+
+.layui-btn-sm{
+    height: 30px;
+    border-radius: 2px;
+    padding:0 18px !important
+}
+
+    .layui-btn-normal {
+        background-color: #4bb2ff
+    }
+.layui-btn-warn{
+    background-color: #f8c64f;
+}
+.layui-btn-danger{
+    background-color: white;
+    border: 1px solid #ff784e;
+    color: #ff784e;
+}
+.layui-form-checked[lay-skin=primary] i{
+    border: 1px solid #4bb2ff;
+    background-color: #4bb2ff;
+}
+.layui-btn-danger:hover {
+    color: #ff784e
+}
+.fixbar {
+    position: fixed;
+    bottom: 70px;
+    right: 15px;
+    z-index: 100000;
+}
+
+.bar-item {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 1px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 2px;
+    opacity: .55;
+    word-break: break-all
+}
+
+    .bar-item:hover {
+        transform: scale(1.02)
+    }

@@ -1,0 +1,100 @@
+﻿
+
+.field {
+    position: relative;
+}
+
+    .field input {
+        width: 100%;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        background-image: none;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        height: 30px;
+        padding: 0px 10px;
+    }
+
+        .field input:focus {
+            outline: 0;
+        }
+
+
+
+/**
+ * Simplecomplete
+ */
+
+.autocompleter {
+    width: 100%;
+    background: #eee;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 100;
+}
+
+.autocompleter,
+.autocompleter-hint {
+    position: absolute;
+}
+
+.autocompleter-list {
+    box-shadow: inset 0px 0px 6px rgba(0,0,0,0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.autocompleter-item-selected {
+    background: #dedede;
+}
+
+.autocompleter-item {
+    padding: 2px 10px;
+    color: #444444;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    .autocompleter-item:hover {
+        background: #ddd;
+    }
+
+    .autocompleter-item strong {
+        background: #f9de8f;
+        /*color: #FF5722;*/
+        text-shadow: 0 1px 0 #ffffff;
+    }
+
+    .autocompleter-item span {
+        color: #808080;
+    }
+
+.autocompleter-hint {
+    color: #dedede;
+    text-align: left;
+    top: -26px;
+    font-weight: 400;
+    left: 0px;
+    width: 100%;
+    padding: 0px 10px 0px 11px;
+    font-size: 14px;
+    display: none;
+}
+
+    .autocompleter-hint span {
+        color: transparent;
+    }
+
+.autocompleter-hint-show {
+    display: block;
+}
+
+.autocompleter-closed {
+    display: none;
+}

@@ -1,0 +1,309 @@
+@font-face {
+    font-family: 'siYuanHeiTi';
+    src: url('/font/SourceHanSansSC-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    font-family: 'siYuanHeiTi' !important;
+    src: url('/font/SourceHanSansSC-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+#funcView {
+    width: 126px;
+    
+    height: 38px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+header.mui-bar {
+    padding-top: 25px;
+    background-color: inherit;
+    height:69px;
+}
+
+.mui-toast-container {
+    top: 50px !important;
+}
+
+.mui-bar-nav ~ .mui-content {
+    padding-top: 69px !important;
+    padding-bottom: 65px;
+    height: 100%;
+}
+
+.mui-bar .mui-btn-nav {
+    color: #4BB2FF;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.2em;
+    top: 4px;
+}
+
+    .mui-bar .mui-btn-nav:active {
+        color: #109aff;
+        background-color: transparent;
+        border: 0;
+    }
+.mui-bar .mui-icon {
+    font-size:30px;
+    padding-top:5px;
+}.mui-table-view-cell .right-text, .mui-table-view-head .right-text {
+    float: right;
+}
+
+.mui-table-view-head {
+    position: relative;
+    overflow: hidden;
+    padding: 13px 15px;
+    -webkit-touch-callout: none;
+    border-bottom :1px solid #dbdbdb;
+}
+
+.color-green {
+    color: #62c96A;
+}
+
+.mui-table-view-cell .after-desc-border {
+    font: STHeitiSC-Light;
+    color: #999999;
+    font-size: 9px;
+    font-weight: lighter;
+    border: 1px solid #dbdbdb;
+    padding: 3px 8px;
+}
+
+.mui-table-view-cell::after {
+    left: 0px
+}
+
+.detail-head-name {
+    height: 150px;
+    line-height: 150px;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding-left: 30px;
+    font-family: HiraginoSansGB-W6;
+}
+
+    .detail-head-name span {
+        font-size: 9pt;
+        font-family: STHeitiSC-Light;
+    }
+
+.evaluation-head-detail {
+    background-image: url(../imgs/banner-1.png);
+    background-repeat: no-repeat;
+    background-position-x: initial;
+    background-position-y: inherit;
+    height: 150px;
+    width: 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.detail-label {
+    font-family: HiraginoSansGB-W3;
+    color: #999999;
+    font-size: 12px;
+}
+
+.detail-text {
+    font-family: HiraginoSansGB-W3;
+    color: #333333;
+    font-size: 14px;
+}
+
+.detail-score {
+    font-family: HiraginoSansGB-W3;
+    color: #4FC96E;
+    font-size: 20px;
+    text-align: center;
+}
+
+.detail-deductscore {
+    font-family: HiraginoSansGB-W3;
+    color: #F04E4E;
+    font-size: 20px;
+    text-align: center;
+}
+
+.detail-label-date {
+    font-family: HiraginoSansGB-W3;
+    color: #999999;
+    font-size: 10px;
+    text-align: center;
+}
+
+.inspection-head-detail {
+    background-image: url(../imgs/banner-2.png);
+    background-repeat: no-repeat;
+    background-position-x: initial;
+    background-position-y: inherit;
+    height: 150px;
+    width: 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.mui-table-view-cell .right-text.color-red {
+    color: red;
+    float: right;
+}
+
+li.mui-table-view-cell > div.line1 {
+    display: inline-block;
+    height: 55px;
+    line-height: 30px;
+}
+
+    li.mui-table-view-cell > div.line1 > span.first-span {
+        font-size: 14px;
+        color: #333333;
+        font-weight: normal;
+        font-family: STHeitiSC-Light;
+    }
+
+    li.mui-table-view-cell > div.line1 > span.second-span {
+        font-size: 12px;
+        color: #333333;
+        font-family: STHeitiSC-Light;
+        font-weight: normal;
+    }
+
+li.mui-table-view-cell > div.line2 {
+    height: 55px;
+    line-height: 55px;
+    float: right;
+}
+
+    li.mui-table-view-cell > div.line2 > span.first-span {
+        padding: 0px;
+        font-size: 19px;
+        font-family: HiraginoSansGB-W3;
+    }
+
+    li.mui-table-view-cell > div.line2 > span.second-span {
+        margin-left: 16px;
+        padding: 0px;
+        color: #999999;
+    }
+
+li.mui-table-view-cell > div.first-line {
+    display: inline-block;
+    height: 55px;
+    line-height: 30px;
+    width: 70%;
+}
+
+    li.mui-table-view-cell > div.first-line > div.first-div {
+        font-size: 16px;
+        color: #333333;
+        font-weight: normal;
+        font-family: STHeitiSC-Light;
+    }
+
+    li.mui-table-view-cell > div.first-line > span.first-span {
+        padding: 0px;
+        color: #999999;
+    }
+
+li.mui-table-view-cell > div.line2 > span.first-span {
+    margin-right: 18px;
+}
+
+li.mui-table-view-cell > div.first-line > span.summary-span {
+    padding: 0px;
+    font-family: STHeitiSC-Medium;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.color-F04E4E {
+    color: #F04E4E;
+}
+
+.color-4FC96E {
+    color: #4FC96E;
+}
+
+
+.search-row {
+    background-color: #fff;
+    border-bottom: 1px solid #F2F2F2;
+    line-height: 60px;
+    padding: 0px 10px;
+    display: flex;
+}
+
+    .search-row .search-label-left {
+        color: #333333;
+        width: 20%;
+        text-align: left;
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    .search-row .search-control-right {
+        color: #999999;
+        width: 80%;
+        text-align: right;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+.search-panel {
+    background-color: #fff;
+    border-bottom: #F2F2F2;
+    line-height: 60px;
+    padding: 0px 10px;
+}
+
+    .search-panel .search-label-title {
+        line-height: 40px;
+        color: #333333;
+        width: 100%;
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    .search-panel .search-control-panel {
+        line-height: 50px;
+        color: #333333;
+        width: 100%;
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+ul.item-list {
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+    ul.item-list li {
+        background-color: #bbb;
+        color: #fff;
+        padding: 0px 7px;
+        display: inline-block;
+        line-height: 45px;
+        margin-right: 5px;
+        border-radius: 2px;
+        margin-bottom: 10px;
+    }
+
+        ul.item-list li.active {
+            background-color: #4BB2FF
+        }

@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <title>数字校园</title>
+    <link rel="shortcut icon" href="https://static.k12top.com/Common/yunmalogo_new.png" />
+
+    <link href="/Plugin/layui/css/layui.css" rel="stylesheet" />
+    <link href="/Css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="/Css/globalstyle.css" rel="stylesheet" />
+    <link href="/Css/style.css" rel="stylesheet" />
+    <link href="/Css/app/common.css" rel="stylesheet" />
+    <link href="/Plugin/jquery.autocompleter/jquery.autocomplete.css" rel="stylesheet" />
+    <link href="/Css/toggle.css" rel="stylesheet" />
+    <link href="/font/iconfont.css" rel="stylesheet" />
+    <script src="/Scripts/localforage.min.js"></script>
+    <style>
+        .nav-text {
+            margin-left: 10px;
+        }
+
+        .layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+            /*            background-color: #15A0ED !important*/
+        }
+
+        .layui-nav-tree .layui-nav-item a {
+            line-height: 35px;
+        }
+
+        .layui-nav-tree .layui-nav-child a {
+            line-height: 40px;
+        }
+
+
+        .layui-nav .layui-nav-child dd:hover ul {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 95px;
+            background-color: #FFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,.12);
+            border: 1px solid #d2d2d2 !important;
+            border-radius: 2px;
+        }
+
+        .layui-nav .layui-nav-child dd ul {
+            display: none;
+            padding: 0
+        }
+
+            .layui-nav .layui-nav-child dd ul a:hover {
+                background: #F0F0F0;
+            }
+
+        .bg_hover {
+            background-color: #F0F0F0
+        }
+
+        .bg_this {
+            color: #15A0ED !important;
+            background-color: #f2f2f2 !important;
+        }
+
+        .layui-layout-admin .layui-side.pull-top, .layui-layout-admin .layui-body.pull-top {
+            top: 0px !important;
+        }
+
+        .up-head {
+            width: 100%;
+            height: 60px;
+            background: #ffffff;
+            -moz-box-shadow: 0 2px 5px -1px #ddd;
+            box-shadow: 0 2px 5px -1px #ddd;
+        }
+
+            .up-head .up-head-left {
+                margin-left: 30px;
+            }
+
+                .up-head .up-head-left li {
+                    list-style: none;
+                    float: left;
+                }
+
+            .up-head ul {
+                margin: 0;
+                padding: 0;
+            }
+
+                .up-head ul li {
+                    height: 60px;
+                    line-height: 60px;
+                }
+
+            .up-head .logo-img {
+                height: 45px;
+                width: 158px;
+                margin-top: 5px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+        .up-head-right li {
+            font-size: 12px;
+            float: right;
+            list-style: none;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .right-out {
+            position: absolute;
+            top: 62px;
+            right: 8px;
+            background: #ffffff;
+            -moz-box-shadow: -2px 0px 5px 0px #ddd;
+            box-shadow: -2px 0px 5px 0px #ddd;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            width: 80px;
+        }
+
+            .right-out div {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                display: none;
+            }
+
+                .right-out div:hover {
+                    background: #4bb2ff;
+                    cursor: pointer;
+                    color: #fff;
+                }
+
+        .right-out-icon:hover .right-out div {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: block;
+        }
+
+        #logo_Res {
+            color: #c13643;
+        }
+
+        .up-head-img {
+            height: 30px;
+            width: 30px;
+            margin-top: -1px;
+        }
+
+        .layui-layout-admin .layui-logo {
+            color: #14a0ec !important;
+            line-height: 60px !important;
+            font-weight: 800 !important;
+            left: 10px;
+        }
+
+        .username {
+            height: 30px;
+            line-height: 50px;
+            color: #1890ff;
+        }
+
+        .userserilno {
+            /*        width: 80px;*/
+            height: 30px;
+            line-height: 25px;
+            font-size: 12px;
+            color: #ccc;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .ym_logo {
+            height: 50px;
+            float: left;
+            line-height: 60px;
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+
+        .logo-text {
+            text-align: left;
+            line-height: 60px;
+            font-size: 20px;
+            color: #14a0ec;
+            font-weight: 800;
+            cursor: pointer;
+            margin-left: 80px;
+        }
+
+        .layui-nav-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .layui-layout-right {
+            margin-right: 20px !important;
+        }
+    </style>
+</head>
+<body class="layui-layout-body" style="background:#f2f2f2;">
+    <div class="layui-layout layui-layout-admin">
+            <div class="layui-header up-head">
+                    <ul class="up-head-left">
+                        <li>
+                            <a id="btnHost" class="btn-revert" style="cursor: pointer">
+                                <div class="layui-logo" style="background:url('https://static.k12top.com/Common/yunmalogo_new.png') no-repeat 8px center / 42px 45px">
+                                    <label style="cursor:pointer;color:#14a0ec;font-size:20px;">数字校园</label>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                
+
+                <!-- 头部区域（可配合layui已有的水平导航） -->
+                
+                <!-- 头部区域（可配合layui已有的水平导航）-->
+                <ul class="layui-nav layui-layout-right">
+                    <li style="float:left;line-height:60px;margin-right:20px;">
+                        <a href="javascript:;">
+                            <img src="/imgs/funcImg.png" class="layui-nav-img funcImg" id="funcView">
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <div style="float:left;"><img src="#" class="layui-nav-img" id="imgAvatar"></div>
+                            <div style="float:left;">
+                                <div class="username" id="lblUserName"></div>
+                                <div class="userserilno" id="serialNo">——</div>
+                            </div>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javaScript:" id="exit">退出</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+
+            </div>
+
+        <div class="layui-side layui-bg-black  moral-menu">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <div id="flowName" style="height:42px;width:200px;color:#ffffff;background-color:#15A0ED;display:none;font-size:12px;text-align:center;line-height:16px;padding-top:12px;">
+                    <div class="grade"></div>
+                    <div class="semester"></div>
+                </div>
+                <ul class="layui-nav layui-nav-tree" lay-filter="navFilter" style="text-align:left !important" id="menuTree"></ul>
+            </div>
+        </div>
+        <!-- 左侧菜单显隐按钮 -->
+        <div class="toggleMenu  moral-menu">
+            <span class="close">
+                <i class="layui-icon layui-icon-left"></i>
+            </span>
+            <span class="open" style="display:none">
+                <i class="layui-icon layui-icon-right"></i>
+            </span>
+        </div>
+        <div class="layui-body  layui-body-moral">
+            <!-- 内容主体区域 -->
+            <div style="min-width:800px;">
+                
+
+<style>
+    body {
+        background-color: #F2F2F2;
+    }
+    .layui-form-label{
+        text-align:right;
+    }
+    @media screen and (min-width: 992px){
+    .row-first-label{
+        text-align:left;
+        padding:9px 5px;
+        width:50px;
+    }
+    .row-first-label +.layui-input-block{
+        margin-left:60px;
+    }
+    }
+    .map {
+        padding-left: 10px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+        .map i {
+            font-size: 14px;
+        }
+
+    .background-color {
+        background-color: #FFF
+    }
+
+    ul.courseClass-panel {
+        text-align: center;
+        padding-top: 21px;
+        padding-bottom: 24px;
+    }
+
+    li.courseClassItem {
+        display: block;
+        margin: auto;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        /*line-height: 2px;*/
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    li > span.courseClassItem {
+        border: 1px solid #ddd;
+        height: 30px;
+        width: 80px;
+        display: block;
+        margin: auto;
+        position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        line-height: 30px;
+    }
+
+    .unChoose {
+        background-color: #f0f0f0;
+    }
+
+    .choose {
+        background-color: #15A0ED;
+        color: #FFF;
+    }
+
+    .card-block {
+        margin-bottom: 5px;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+        .card-block .labelDescription {
+            color: #999;
+            font-size: 12px;
+            line-height: 30px;
+        }
+
+        .card-block .card-content {
+            padding-left: 10px;
+        }
+
+
+    .font-show {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: auto;
+        cursor: pointer;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .mydiv {
+        width: 100%;
+        overflow: hidden;
+        margin: auto;
+        overflow: hidden;
+        padding-top: 5px;
+        padding-left: 26px;
+    }
+
+    .myspan {
+        line-height: 22px;
+        border-radius: 16px;
+        padding: 6px 15px;
+        margin-right: 8px;
+        margin-bottom: 2px;
+        font-size: 12px;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .layui-select-disabled .layui-disabled {
+        background: #f3f3f3;
+    }
+
+    i.fa-search {
+        position: absolute;
+        right: 10px;
+        top: 35%;
+        cursor: pointer;
+        border-width: 6px;
+        border-top-color: #c2c2c2;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        color: grey;
+    }
+
+    #ulTeachClass {
+    }
+
+        #ulTeachClass li {
+            padding-right: 10px;
+            line-height: 40px;
+        }
+
+            #ulTeachClass li span {
+                border: 1px solid #ddd;
+                height: 30px;
+                display: block;
+                margin: auto;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5px;
+                line-height: 30px;
+                padding: 3px 6px;
+                text-align: center;
+            }
+
+                #ulTeachClass li span:hover {
+                    background-color: #F2F2F2;
+                }
+
+            #ulTeachClass li.active span {
+                background-color: #15A0ED;
+                color: #FFF;
+            }
+
+                #ulTeachClass li.active span:hover {
+                    background-color: #15A0ED;
+                }
+
+    #ulNumOfDay {
+    }
+
+        #ulNumOfDay li {
+            padding-right: 10px;
+            line-height: 40px;
+        }
+
+            #ulNumOfDay li span {
+                border: 1px solid #ddd;
+                height: 30px;
+                display: block;
+                margin: auto;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5px;
+                line-height: 30px;
+                padding: 3px 6px;
+                text-align: center;
+            }
+
+                #ulNumOfDay li span:hover {
+                    background-color: #F2F2F2;
+                }
+
+            #ulNumOfDay li.active span {
+                background-color: #15A0ED;
+                color: #FFF;
+            }
+
+                #ulNumOfDay li.active span:hover {
+                    background-color: #15A0ED;
+                }
+
+    #imgContainer .img-item {
+        margin-right: 15px;
+        display: inline-block;
+        padding: 8px;
+        border: 1px solid #f0f0f0;
+        position: relative;
+    }
+
+        #imgContainer .img-item i {
+            position: absolute;
+            right: -8px;
+            top: -10px;
+            color: red;
+            font-weight: bold;
+            font-size: medium;
+            cursor: pointer;
+        }
+
+    #imgContainer img {
+        width: 60px;
+        max-height: 120px;
+        cursor: -webkit-zoom-in;
+    }
+
+    .selectAllStu {
+        height: 30px;
+        line-height: 30px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+        .selectAllStu .layui-form-checkbox {
+            height: 20px;
+            line-height: 18px;
+            padding-right: 20px;
+        }
+
+            .selectAllStu .layui-form-checkbox i {
+                width: 25px;
+            }
+</style>
+<div class="layui-form" id="StudentEvaluationIndexContent">
+    <div class="layui-elem-quote-left">
+        <span class="layui-breadcrumb">
+            <span>学生考评</span>
+        </span>
+    </div>
+    <div class="content-area">
+        <input hidden id="courseName" />
+        <div class="row">
+            <div class="layui-col-md4">
+                <label class="layui-form-label  row-first-label">教师</label>
+                
+                    <div class="layui-input-block">
+                        <div id="divTeacherSerialNo">
+                            <input type="text" placeholder="按照姓名/拼音/教师工号查询" class="layui-input description" readonly="readonly" style="cursor:pointer;" name="TeacherSerialNo" id="TeacherSerialNo" />
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+            </div>
+            <div class="layui-col-md4">
+                <label class="layui-form-label">日期</label>
+                <div class="layui-input-block">
+                    <input type="text" class="layui-input" style="display: inline-block;/*width: 162px*/" id="Date" value="2022-01-21" readonly />
+                </div>
+            </div>
+        </div>
+        <div class="row layui-col-md12" style="margin-top:10px;">
+            <label class="layui-form-label row-first-label">教学班</label>
+            <div class="layui-input-block">
+                <ul id="ulTeachClass"></ul>
+            </div>
+        </div>
+
+        <div class="row layui-col-md12" style="margin-top:10px;">
+            <label class="layui-form-label row-first-label">节次</label>
+            <div class="layui-input-block">
+                <ul id="ulNumOfDay"></ul>
+            </div>
+        </div>
+        
+        
+        <ul id="ViewStudents" class="layui-row courseClass-panel"></ul>
+    </div>
+    <div id="controlDisplay" style="display:none" class="student-evaluation">
+        <div style="width:100%;margin-top:5px;" class="card-block">
+            <i class="fa fa-gittip gray"></i>
+            <span style="color:gray">点击学生姓名来标记评分情况</span>
+        </div>
+                <div class="card-block" id="StudentEvaluationStandards">
+                    <label class="labelDescription">出勤</label>
+                    <div class="mydiv card-content">
+                                    <span class="myspan unChoose font-show" value="198">
+                                        迟到
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="199">
+                                        早退
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="202">
+                                        旷课
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="596">
+                                        桌椅不整洁
+                                    </span>
+                    </div>
+                </div>
+                <div class="card-block" id="StudentEvaluationStandards">
+                    <label class="labelDescription">结构化预习</label>
+                    <div class="mydiv card-content">
+                                    <span class="myspan unChoose font-show" value="146">
+                                        小组生成了问题
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="197">
+                                        未完成预习
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="200">
+                                        认真预习
+                                    </span>
+                    </div>
+                </div>
+                <div class="card-block" id="StudentEvaluationStandards">
+                    <label class="labelDescription">课堂表现</label>
+                    <div class="mydiv card-content">
+                                    <span class="myspan unChoose font-show" value="201">
+                                        学科长称职
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="203">
+                                        组员不团结
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="204">
+                                        主动交流展示
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="205">
+                                        创新思维
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="206">
+                                        团结协作
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="207">
+                                        睡觉
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="208">
+                                        玩手机
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="209">
+                                        看无关书报
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="210">
+                                        精力涣散
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="216">
+                                        不做笔记
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="217">
+                                        笔记差评
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="218">
+                                        笔记优质
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="222">
+                                        不带教材
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="595">
+                                        讲话
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="597">
+                                        开小差
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="646">
+                                        着装不规范
+                                    </span>
+                    </div>
+                </div>
+                <div class="card-block" id="StudentEvaluationStandards">
+                    <label class="labelDescription">作业与检测</label>
+                    <div class="mydiv card-content">
+                                    <span class="myspan unChoose font-show" value="158">
+                                        不交作业
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="159">
+                                        教师检查，质量较差
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="211">
+                                        持续进步
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="212">
+                                        作业差评
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="213">
+                                        作业优质
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="219">
+                                        整理归类优
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="220">
+                                        学科检测优
+                                    </span>
+                                    <span class="myspan unChoose font-show" value="221">
+                                        学科检测差
+                                    </span>
+                    </div>
+                </div>
+
+        <div class="layui-upload card-block">
+            <button type="button" class="layui-btn layui-btn-sm" id="btnUploadImg">上传图片</button>
+
+            <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                预览图：
+                <div class="layui-upload-list" id="imgContainer"></div>
+            </blockquote>
+
+        </div>
+        <div style="padding-left:25px" class="card-block">
+            <button id="saveAndInt" class="layui-btn layui-btn-sm layui-btn-normal">保存</button>
+        </div>
+    </div>
+    <input type="hidden" value="0" id="IsTeacher">
+</div>
+
+
+            </div>
+        </div>
+        <div class="fixbar">
+            <div class="bar-item" id="return-top">
+                返回顶部
+            </div>
+            <div class="bar-item" id="map" style="display:none">
+                排课地图
+            </div>
+            <div class="bar-item" id="clear-data" style="display: none">
+                清除数据
+            </div>
+            <div class="bar-item" id="go-bottom">
+                返回底部
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery.cookie-1.4.1.min.js"></script>
+    <script src="/Plugin/layui/layui.js"></script>
+    <script src="/Scripts/layui.common-1.0.0.js"></script>
+    <script src="/Plugin/jquery.autocompleter/jquery.autocompleter.js"></script>
+    <script src="/Scripts/toggle.js"></script>
+    <script src="/Scripts/xm-select.js"></script>
+    <script>
+
+
+
+        //刷新token
+
+        //设置登录权限
+        if (this.getQueryStr('access_token') && this.getQueryStr('refresh_token')) {
+            $.cookie('access_token', this.getQueryStr('access_token'));
+            $.cookie('refresh_token', this.getQueryStr('refresh_token'));
+        }
+
+        //获取url请求参数
+        function getQueryStr(field) {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0].toLowerCase()] = hash[1];
+            }
+
+            if (field) {
+                return vars[field.toLowerCase()];
+            }
+
+            return vars;
+        }
+
+        //获取各种配置的地址
+        var loginUrl = "";
+        var mainPage = "";
+        var portalurl = "";
+        var defaultAvatar = "";
+        $.get("/Moral/MyStudent/GetSettingUrl", {}, function (result) {
+            if (result) {
+                loginUrl = result.LoginUrl;
+                mainPage = result.MainPage;
+                portalurl = result.Portalurl;
+                defaultAvatar=result.DefaultAvatar
+            }
+        }, "json");
+
+        //返回到管理首页
+        $("#btnHost").click(function () {
+            window.location.href = mainPage;//config.mainpage;
+        });
+
+            $("#funcView").click(function () {
+              window.location.href = portalurl;//config.portalurl;
+            });
+        $("#exit").click(function () {
+            
+            window.location.href = "/Login/LoginOut";
+        });
+
+
+
+        //排课任务清除数据
+        function ClearData(taskFlowId, key) {
+            layer.confirm('即将清除本页面及后续流程所有数据, 是否确定?', { icon: 3, title: '提示' }, function (index) {
+                var _openIndex = layer.msg('数据删除中,请稍后', {
+                    icon: 16,
+                    shade: 0.01,
+                    time:0
+                });
+                $.getJSON('/ScheduleFlow/ScheduleTaskFlowDataClear/ClearData', { taskFlowId: taskFlowId, key: key }, function (response) {
+                    if (!response.HasError) {
+                        layer.msg('数据删除成功', {
+                            icon: 1,
+                            time: 2000,
+                            shade: 0.01
+                        },
+                            function () {
+                                window.location.reload();
+                            });
+                    } else {
+                        layer.alert(response.Message, { icon: 2 });
+                    }
+                    layer.close(_openIndex);
+                })
+                layer.close(index);
+            });
+        }
+
+        //动态显示菜单左上角排课年级
+        function showCurrentFLowName() {
+            if(window.flowID){
+                $.ajax({
+                    url: '/ScheduleFlow/ScheduleTaskFlow/GetScheduleTaskFlowDetail',
+                    method: 'get',
+                    data: {
+                        FlowId: window.flowID
+                    },
+                    success: function (data) {
+                        if (!data.HasError) {
+                            var grade = data.Data.EduYearName
+                            var name = data.Data.SemesterName
+                            $('#flowName .grade').text(grade)
+                            $('#flowName .semester').text(name)
+                            $('#flowName').show()
+                        }
+                    },
+                    error: function () { }
+                })
+            }
+        }
+        //加载用户角色列表
+        loadCurrentUserRoles();
+        function loadCurrentUserRoles() {
+            $.getJSON('/Login/LoadUserRoles', {}, function (roles) {
+                $('#currentRole').html();
+                $('#rolesPanel').empty();
+                $('#currentRole').attr('data-rId', '');
+                var _rolestext = '';
+                $(roles).each(function (index, role) {
+                    if (role.IsSelected) {
+                        if (roles.length > 1) {
+                            _rolestext += '<li name="liNav"><a class="bg_this" name="roleItem" style="cursor: pointer;color: #15A0ED !important;" data-rId=${role.RoleId} href="#">${role.RoleName}</a></li>';
+                        }
+                        $('#currentRole').html(role.RoleName);
+                        $('#currentRole').attr('data-rId', role.RoleId);
+                    } else {
+                        if (roles.length > 1)
+                            _rolestext += '<li name="liNav"><a  name="roleItem" style="cursor: pointer" data-rId=${role.RoleId} href="#">${role.RoleName}</a></li>';
+
+                    }
+                })
+                $('#rolesPanel').append(_rolestext)
+            })
+        }
+        //角色切换
+        $('#rolesPanel').on('click', 'a[name="roleItem"]', function (e) {
+            var self = this;
+            var _currentRId = $('#currentRole').attr('data-rId');
+            var _nRId = $(self).attr('data-rId');
+            //if (_nRId== _currentRId)
+            //    return
+                $.post('/Login/RoleChange', { oldRoleId: _currentRId, nRoleId: _nRId }, function (response) {
+                    if (response.HasError) {
+                        layer.msg(response.Message, { icon: 2 });
+                    } else {
+                        //loadCurrentUserRoles();
+                        //window.location.reload();//需要attrbute->无权限->首页||无权限提示页
+                        window.location.href = "/Home/Index";
+                    }
+                })
+        })
+        function showMap() {
+            $('#map').show()
+        }
+        function showClearData() {
+            $('#clear-data').show()
+        }
+
+        $(function () {
+            $('#loginPanel').on('click', 'a[name="navItem"]', function (e) {
+                $(this).parent().removeClass('layui-this')
+            })
+            $('#loginPanel').on('click', 'li[name="liNav"]', function (e) {
+                $(this).removeClass('layui-this')
+            })
+            $('#loginPanel').on('mouseenter ', 'li[name="liNav"]', function (e) {
+                $(this).parent().prev().addClass('bg_hover')//.css("background-color", "#F0F0F0")//background:#F0F0F0
+            })
+            $('#loginPanel').on('mouseleave ', 'li[name="liNav"]', function (e) {
+                $(this).parent().prev().removeClass('bg_hover')
+            })
+            function menuRender() {
+                var urlmap = [
+                    {
+                        src: "/ExamPlan/Exam/Othre",
+                        dest: "/ExamPlan/Exam/Index"
+                    },
+                    {
+                        src: "/ExamPlan/Exam/ExamSetting",
+                        dest: "/ExamPlan/Exam/Index"
+                    }
+                ];
+                var path = window.location.pathname;
+                $(urlmap).each(function () {
+                    var src = this.src;
+                    var dest = this.dest;
+                    if (src == path) {
+                        path = dest;
+                    }
+                });
+
+                var activeNav = null;
+                if (path == "/") {
+                    activeNav = $(".layui-nav [default-page]");
+                } else {
+                    var navList = $(".layui-nav a[href]");
+                    $(navList).each(function () {
+                        var currNav = this;
+                        var url = $(currNav).attr("href");
+                        if (url.indexOf(path) >= 0) {
+                            activeNav = $(currNav);
+                        }
+                    });
+                    if (activeNav == null) {
+                        var prevPath = path.substr(0, path.lastIndexOf('/'))
+                        $(navList).each(function () {
+                            var currNav = this;
+                            var url = $(currNav).attr("href");
+                            if (url.indexOf(prevPath) >= 0) {
+                                activeNav = $(currNav);
+                            }
+                        });
+                    }
+                }
+                if (activeNav != null && activeNav != undefined) {
+                    activeNav.addClass("layui-this");
+                    var pNode = activeNav.parents(".layui-nav-item");
+                    if (pNode != null && pNode != undefined) {
+                        pNode.addClass("layui-nav-itemed");
+                    }
+                }
+            }
+
+            $('#return-top').click(function () {
+                $('.layui-body').animate({ scrollTop: 0 }, 300);
+            })
+            $('#go-bottom').click(function () {
+                var scrollHeight = document.getElementsByClassName('layui-body')[0].scrollHeight;
+                $('.layui-body').animate({ scrollTop: scrollHeight }, 300);
+            })
+            //获取url请求参数
+            function getQueryStr(field) {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0].toLowerCase()] = hash[1];
+                }
+
+                if (field) {
+                    return vars[field.toLowerCase()];
+                }
+
+                return vars;
+            }
+            //JavaScript代码区域
+            layui.use(['element', 'form', 'layer'], function () {
+                var element = layui.element;
+                var layer = layui.layer;
+                //设置菜单项
+                var _menuKey = "_menuKey_moral";
+                var _menuCheck = JSON.parse($.cookie('morallogininfo')).MenuCheck;
+                _menuCheck = "true";
+                if (_menuCheck != "") {
+                    _removeMenuRender();
+                    $.post('/Login/CompareRoleItem', { roleId: 0, indexs: [], appid: getQueryStr('appid') }, function (response) {
+                        if (response.HasError) {
+                            layer.msg(response.Message, { icon: 2 });
+                        } else {
+                            new Promise(function (resolve, reject) {
+                                __menuStore(response);
+                                resolve();
+                            });
+                        }
+                    });
+                }
+                else {
+                    _renderMenu();
+                }
+
+                function __menuStore(response) {
+                    localforage.removeItem(_menuKey).then(function () {
+                        localforage.setItem(_menuKey, response.Data.menus).then(function (value) {
+                            _renderMenu(function () {
+                                //$('.layui-nav-item').addClass('layui-nav-itemed');
+                            });
+                        }).catch(function (err) {
+                            layer.msg(err, { icon: 2 });
+                        });
+                    }).catch(function (err) {
+                        layer.msg(err, { icon: 2 });
+                    });
+                }
+                function _removeMenuRender() {
+                    $.getJSON('/Login/RemoveMenuCheck', {}, function (res) {
+                        if (res.HasError) {
+                            layer.msg(res.Message, { icon: 2 });
+                        }
+                    })
+                }
+                function _renderMenu(callback) {
+                     localforage.getItem(_menuKey).then(function (value) {
+                        if (value == null)
+                            return
+                        //layer.msg('未获取到菜单项', { icon: 2 });
+                        $('#menuTree').empty();
+                        var _tree = '';// class="layui-this"
+                         $(value).each(function (index, module) {
+                             module.IconContent = module.IconContent.substr(1);
+                            if (module.IsDisplay) {
+                                _tree += '<li class="layui-nav-item" data-mId="' + module.Index + '"><a style="line-height:35px" href="' + module.Href + '"><i class="iconfont ' + module.IconContent + '"></i><span class="nav-text">' + module.Title+'</span></a>';
+
+                                if (module.ChildMenus.length > 0) {
+                                    _tree += '<dl class="layui-nav-child" style="background-color:#ffffff !important">';
+                                    $(module.ChildMenus).each(function (index, menu) {
+                                        menu.IconContent = menu.IconContent.substr(1);
+                                        if (menu.IsDisplay) {
+                                            _tree += '<dd><a href="' + menu.Href + '"><i class="iconfont ' + menu.IconContent + '"></i><span class="nav-text">' + menu.Title+'</span></a></dd>';
+                                        }
+                                    })
+                                    _tree += '</dl>';
+                                }
+                                _tree += '</li>';
+                            }
+                        })
+                        $('#menuTree').append(_tree)
+                        menuRender();
+                        _removeMenuRender();
+                        element.render('nav');
+                    }).then(callback).catch(function (err) {
+                        layer.msg(err, { icon: 2 });
+                    });
+                }
+            });
+              $("#updatePassWord").click(function () {
+                 layer.open({
+                    type: 2,
+                    title: "修改密码",
+                    content: "/BasicData/User/Update",
+                    area: ['455px', '255px'],
+                    end: function () {
+                    }
+                });
+            });
+        });
+
+        var refresh_token = getCookie("refresh_token");
+        var access_token = getCookie("access_token");
+
+        $.ajax({
+            type: "GET",
+            url: '/BasicData/User/UserInfo',
+            dataType: "json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("access_token", refresh_token);
+                xhr.setRequestHeader("refresh_token", access_token);
+                xhr.setRequestHeader("Authorization", `Bearer ${access_token}`);
+            },
+            success: function (result) { 
+                if (result && result.code === 0) {
+                    var data = result.data
+                    if (data.avatarUrl && data.avatarUrl != "" && data.avatarUrl != null)
+                        $("#imgAvatar").attr("src", data.avatarUrl)
+                    else
+                        $("#imgAvatar").attr("src", defaultAvatar)
+
+                    $("#lblUserName").html(data.userName + '<svg style="margin-left:2px;" viewBox="64 64 896 896" focusable="false" fill="currentColor" width="0.7em" height="0.7em" data-icon="down" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>');
+                    $("#serialNo").html(data.accountName);
+                }
+            }
+        });
+
+        //获取cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+    </script>
+    
+    <script type="text/javascript">
+        $(function () {
+            layui.use(['laydate', 'form', 'layer', 'table','upload'], function () {
+                var laydate = layui.laydate;
+                var form = layui.form;
+                var table = layui.table;
+                var upload = layui.upload;
+                var dateSave = "";
+                var teachClassSave = "";
+                var uploadfiles = [];
+                form.verify({
+                    teachClassVerify: function (value, item) {
+                        if ($("#TeachClass").children().length == 0) {
+                            return "请先通过教师查询出教学班"
+                        } else {
+                            if ($("#TeachClass").val() == "" || $("#TeachClass").val() == null) {
+                                return "请先选择教学班"
+                            }
+                        }
+                    }
+                });
+
+                laydate.render({
+                    elem: '#Date',//注册时间控件
+                    max: '2022-01-21',
+                    done: function (value, date, endDate) { //监听日期被切换
+                        if ($("#TeacherSerialNo").val() != "")
+                            getTeacherClass($("#TeacherSerialNo").attr("teacherserialno"))
+                    }
+                });
+
+                //var uplaodIndex;
+                //layui-icon-close
+                //多图片上传
+                upload.render({
+                    elem: '#btnUploadImg'
+                    , url: '/Moral/UploadFile/Upload'
+                    , multiple: true
+                    , size: 10240 //最大允许上传的文件大小
+                    , before: function (obj) {
+                        // uplaodIndex = layer.msg('正在上传...', { icon: 16, shade: 0.01, time: 0 });
+
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function (index, file, result) {
+                            $('#imgContainer').append('<div class="img-item"><i class="layui-icon layui-icon-close deleteImg" title="删除"></i> <img src="' + result + '" alt="' + file.name + '" class="layui-upload-img"></div>')
+                        });
+                    }
+                    , done: function (data) {
+                        layer.close(layer.index);
+                        //上传完毕
+                        uploadfiles.push({
+                            FileName: data.FileName,
+                            PhysicalName: data.PhysicalName,
+                            StoredPath: data.StoredPath,
+                            Size: data.Size,
+                        })
+                    }
+                });
+                $("#imgContainer").on("click", "img", function () {
+                    var index = $(this).parent(".img-item").index();
+                    var imgData = [];
+                    $.each(uploadfiles, function (i, img) {
+                        imgData.push({
+                            "alt": "",
+                            "pid": "", //图片id
+                            "src": '/Moral/UploadFile/DownloadFile?name=' + img.PhysicalName + '&displayName=' + img.FileName, //原图地址
+                            "thumb": "" //缩略图地址
+                        })
+                    })
+                    layer.photos({
+                        photos: {
+                            "title": "", //相册标题
+                            "id": "", //相册id
+                            "start": index, //初始显示的图片序号，默认0
+                            "data": imgData
+                        },
+                        anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机
+                    });
+                })
+                //删除图片
+                $("#imgContainer").on("click", ".deleteImg", function () {
+                     var _this = $(this);
+                    var index = _this.parent(".img-item").index();
+                    $.post("/Moral/UploadFile/Delete", { fileName: uploadfiles[index].PhysicalName }, function (result) {
+                        if (result.Result) {
+                            uploadfiles.splice(index,1)
+                            _this.parent(".img-item").remove();
+                        } else
+                            layer.msg("删除失败！");
+                    })
+
+                });
+
+                var getTeacherClass = function (TeacherSerialNo) {
+                    var index = layer.msg('查询中，请耐心等待...', { icon: 16, shade: 0.01, time: 0 });
+                    $("#ViewStudents li").remove();
+                    $("#ViewStudents hr").remove();
+                    $(".choose").addClass('unChoose').removeClass('choose');
+                    $("#controlDisplay").hide();
+                    var date = $("#Date").val();
+                    $.getJSON('/Moral/StudentEvaluation/QueryTeachClassListWithDate', { TeacherSerialNo: TeacherSerialNo, Date: date }, function (teachClassInfos) {
+                        layer.close(index);
+                        $('#ulTeachClass').empty();
+                        $('#ulNumOfDay').empty();
+                        if (teachClassInfos.length > 0) {
+                            $(teachClassInfos).each(function (index, teachClass) {
+                                $('#ulTeachClass').append('<li class="layui-col-md3" data-value="' + teachClass.TeachClassSerialNo + '"  data-coursename="' + teachClass.CourseName + '" data-teachclassid="' + teachClass.TeachClassId + '"><span title="' + teachClass.Name + '" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + teachClass.Name + '</span></li>');
+                                if (teachClass.DetailData.length > 0) {
+                                    $(teachClass.DetailData).each(function (index, course) {
+                                        $('#ulNumOfDay').append('<li style="display:none" class="layui-col-md3" data-value="' + course.NumberOfDay + '" data-description="' + course.NumberOfDayDescription + '" data-teachclassid="' + teachClass.TeachClassId + '"><span>' + course.NumberOfDayDescription + '</span></li>');
+                                    });
+                                }
+                            });
+                            if (teachClassInfos.length == 1) {
+                                $('#ulTeachClass li').addClass("active");
+                                getNumOfDay();
+                            }
+                        }
+                        else {
+                            $('#ulTeachClass').append("<li class='layui-col-md12'>未查到教学班！</li>")
+                        }
+                    });
+                }
+                if ('' != '')
+                {
+                    getTeacherClass('');
+                }
+
+                var getNumOfDay = function () {
+                    var teachClassID = $('#ulTeachClass').find("li.active").attr("data-teachclassid");
+                    $('#ulNumOfDay').find("li").each(function () {
+                        if ($(this).attr("data-teachclassid") == teachClassID) {
+                            $(this).show();
+                        }
+                        else {
+                            $(this).hide();
+                        }
+                    });
+                }
+
+                var getStudent = function () {
+                    var index = layer.msg('查询中，请耐心等待...', { icon: 16, shade: 0.01, time: 0 });
+                    var teachClassSerialNo = $('#ulTeachClass').find("li.active").attr("data-value");
+                    teachClassSave = $('#ulTeachClass').find("li.active").attr("data-teachclassid");
+                    var numberOfDay = $('#ulNumOfDay').find("li.active").attr("data-value");
+                    $.ajax({
+                        url: encodeURI('/Moral/StudentEvaluation/GetStudents?timestamp=' + new Date().valueOf()),
+                        type: "post",
+                        data: { "TeachClassSerialNo": teachClassSerialNo, "Date": $("#Date").val()},
+                        dataType: "json",
+                        success: function (data, status) {
+                            var stuids = [];
+                            for (var i = 0; i < data.length; i++) {
+                                stuids.push(data[i].StudentId);
+                            }
+                              //查询此时间请假学生
+                            var disablestudentids = [];
+                            $.get('/Moral/Leave/GetLeaveInfoByDateAndCourse', { date: $("#Date").val(), numberOfDay: numberOfDay, studentIDs: stuids.length > 0 ? stuids.join(',') : "" }, function (leavedata) {
+                                if (leavedata != null && leavedata.length > 0) {
+                                    for (var leaveItem = 0; leaveItem < leavedata.length; leaveItem++) {
+                                        disablestudentids.push(leavedata[leaveItem]);
+                                    }
+                                }
+                                if (data == null || data.length == 0) {
+                                    $("#ViewStudents li").remove();
+                                    $("#ViewStudents hr").remove();
+                                    $("#ViewStudents").append('<li>未查询到学生!</li>');
+                                    $(".choose").addClass('unChoose').removeClass('choose');
+                                    $("#controlDisplay").hide();
+                                } else {
+                                    $("#ViewStudents li").remove();
+                                    $("#ViewStudents hr").remove();
+                                    $("#ViewStudents").append('<hr /><li  class="layui-col-sm1 selectAllStu"><input type="checkbox"/> 全选</li>');
+                                    for (var i = 0; i < data.length; i++) {
+                                        var liString = '<li class="layui-col-sm1 courseClassItem">';
+                                        if (disablestudentids.filter(function (x) { return x == data[i].StudentId; }).length > 0) {
+                                            liString += '<span class="courseClassItem unChoose font-show layui-disabled">';
+                                        }
+                                        else {
+                                            liString += '<span class="courseClassItem unChoose font-show">';
+                                        }
+                                        liString += '<span value="' + data[i].StudentId + '">' + data[i].StudentName + '</span>';
+                                        liString += '</span>';
+                                        liString += '</li>';
+                                        $("#ViewStudents").append(liString);
+                                    }
+                                    dateSave = $("#Date").val();
+                                    $(".choose").addClass('unChoose').removeClass('choose');
+                                    $("#controlDisplay").show();
+                                }
+                                form.render();
+                                layer.close(index);
+                            });
+                        },
+                        error: function () {
+                            layer.msg("请求失败！");
+                        }
+                    });
+                }
+
+                $("#ViewStudents").on('click', '.selectAllStu', function () {
+                    var checked = $(this).find("input[type='checkbox']").prop("checked");
+                    if (checked) {
+                        $('#ViewStudents span.courseClassItem:not(.layui-disabled)').addClass('choose').removeClass('unChoose')
+                    }
+                    else {
+                        $('#ViewStudents span.courseClassItem:not(.layui-disabled)').addClass('unChoose').removeClass('choose')
+                    }
+                })
+
+                
+                $('#ulTeachClass').on('click', 'li', function (e) {
+                    $("#ViewStudents li").remove();
+                    $("#ViewStudents hr").remove();
+                    $('#ulNumOfDay').find("li").hide();
+                    $('#ulNumOfDay').find("li").removeClass('active');
+                    $("#controlDisplay").hide();
+                    var self = this;
+                    if ($(self).attr("data-value") != null && $(self).attr("data-value") != "") {
+                        if ($(self).hasClass('active')) {
+                            $(self).removeClass('active')
+                        }
+                        else {
+                            $(self).addClass('active');
+                            $(self).siblings(".active").removeClass('active');
+                            getNumOfDay();
+                        }
+                    }
+                });
+
+                
+                $('#ulNumOfDay').on('click', 'li', function (e) {
+                    $("#ViewStudents li").remove();
+                    $("#ViewStudents hr").remove();
+                    $("#controlDisplay").hide();
+                    var self = this;
+                    if ($(self).attr("data-value") != null && $(self).attr("data-value") != "") {
+                        if ($(self).hasClass('active')) {
+                            $(self).removeClass('active');
+                        }
+                        else {
+                            $(self).addClass('active');
+                            $(self).siblings(".active").removeClass('active');
+                            getStudent();
+                        }
+                    }
+                });
+
+                $("#ViewStudents").on("mouseenter", "li", function () {
+                    var studentID = $(this).find("span").find("span").attr("value");
+                    var teachClassID = $('#ulTeachClass').find("li.active").attr("data-teachclassid");
+                    var $this = $(this);
+                    var obj = $(this).find("span");
+                    $.ajax({
+                        url: '/Moral/StudentEvaluation/GetEveluationDetailByStudentID',
+                        type: "post",
+                        data: {
+                            Date: $("#Date").val(),
+                            TeachClassID: teachClassID,
+                            StudentID: studentID
+                        },
+                        dataType: "json",
+                        success: function (data, status) {
+                            var html = "";
+                            var index;
+                            html = '<span style="color: #666">总扣分(' + data.TotalMinusScore + ')</span><br/><span style="color: #666">总加分(' + data.TotalAddScore + ')</span>';
+                            index = layer.tips(html, $(obj), {
+                                tips: [3, '#f0f0f0'], time: 0
+                            } );
+
+                            $this.attr("layIndex", index)
+                        }
+                    });
+                })
+                $("#ViewStudents").on("mouseleave", "li", function () {
+                    if ($(this).attr("layIndex") && $(this).attr("layIndex"))
+                        layer.close($(this).attr("layIndex"));
+                })
+
+                
+                $('#ViewStudents').on('click', 'span.courseClassItem:not(.layui-disabled)', function (e) {
+                    var self = this;
+                    if ($(self).hasClass('unChoose')) {
+                        $(self).addClass('choose').removeClass('unChoose')
+                    }
+                    else {
+                        $(self).addClass('unChoose').removeClass('choose')
+                    }
+
+                    if ($('#ViewStudents span.courseClassItem').length == $('#ViewStudents span.courseClassItem.choose').length) {
+                        $("#ViewStudents .selectAllStu").find("input[type='checkbox']").prop("checked", true);
+                    }
+                    else {
+                        $("#ViewStudents .selectAllStu").find("input[type='checkbox']").prop("checked", false);
+                    }
+                    form.render();
+                });
+
+                
+                $('.myspan').click(function () {
+                    var self = this;
+                    if ($(self).hasClass('unChoose')) {
+                        $('#controlDisplay').find('span.choose').removeClass('choose').addClass('unChoose');
+                        $(self).addClass('choose').removeClass('unChoose');
+                    }
+                    else {
+                        $(self).addClass('unChoose').removeClass('choose');
+                    }
+                });
+
+                
+                $("#saveAndInt").click(function () {
+                    
+                    var selectedStudents = $("#ViewStudents span.choose span");
+                    var selectedStudentsString = "";
+                    if (selectedStudents.length > 0) {
+                        for (var i = 0; i < selectedStudents.length; i++) {
+                            selectedStudentsString+=$($("#ViewStudents span.choose span")[i]).attr("value")+",";
+                        }
+                    } else {
+                        layer.msg("请先选择学生！");
+                        return;
+                    }
+                    
+                    var selectedSEStandards = $("#StudentEvaluationStandards div.mydiv span.choose");
+                    var selectedSEStandardsString = "";
+                    if (selectedSEStandards.length > 0) {
+                        for (var i = 0; i < selectedSEStandards.length; i++) {
+                            selectedSEStandardsString += $($("#StudentEvaluationStandards div.mydiv span.choose")[i]).attr("value") + ",";
+                        }
+                    } else {
+                        layer.msg("请先选择考评项！");
+                        return;
+                    }
+                    var index = layer.msg('保存中，请耐心等待...', { icon: 16, shade: 0.01, time: 0 });
+
+                    var teachClassSerialNo = $('#ulTeachClass').find("li.active").attr("data-value");
+                    var teachClassID = $('#ulTeachClass').find("li.active").attr("data-teachclassid");
+                    var numberOfDay = $('#ulNumOfDay').find("li.active").attr("data-value");
+                    var numberOfDayDescription = $('#ulNumOfDay').find("li.active").attr("data-description");
+                    var coursename = $('#ulTeachClass').find("li.active").attr("data-coursename")||'语文';
+                    var ClassTeacherName = "";
+                    var isT = $("#IsTeacher").val();
+                    if (isT==1) {
+                        ClassTeacherName = $("#TeacherSerialNo").parent().find("span").text();
+                    }
+                    else {
+                        ClassTeacherName=$("#TeacherSerialNo").val().split('[')[0];
+                    }
+                    $.ajax({
+                        url: encodeURI('/Moral/StudentEvaluation/SaveStudentEvaluationResult?timestamp=' + new Date().valueOf()),
+                        type: "post",
+                        data: {
+                            "TeachClassID": teachClassID,
+                            "Date": dateSave,
+                            "SelectedStudents": selectedStudentsString,
+                            "SelectedSEStandards": selectedSEStandardsString,
+                            "CourseName": coursename,
+                            "UploadFiles": uploadfiles,
+                            "ClassTeacherName": ClassTeacherName,
+                            "NumberOfDay": numberOfDay,
+                            "NumberOfDayDescription": numberOfDayDescription
+                        },
+                        dataType: "json",
+                        success: function (data, status) {
+                            layer.msg(data.Message);
+                        },
+                        error: function () {
+                            layer.msg("请求失败！");
+                        }
+                    });
+                    $(".choose").addClass('unChoose').removeClass('choose');
+                    $("#ViewStudents .selectAllStu").find("input[type='checkbox']").prop("checked", false);
+                    $('#imgContainer').html("");
+                    uploadfiles = [];
+                    form.render();
+                    layer.close(index);
+                });
+
+                 $("#divTeacherSerialNo").on("click", function () {
+                    layer.open({
+                            type: 2,
+                            title: '快速查询',
+                            content: '/Moral/StuAssessmentStatistics/SearchTeacher',
+                            offset: 'auto',
+                            area: ['600px', '420px'],
+                            end: function () {
+                                if ($.trim($("#TeacherSerialNo").val()) != '') {
+                                    getTeacherClass($("#TeacherSerialNo").attr('teacherserialno'));
+                                }
+                            }
+                        });
+                })
+            });
+        });
+    </script>
+
+
+    <script src="/Scripts/start.js"></script>
+</body>
+</html>

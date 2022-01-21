@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <title>数字校园</title>
+    <link rel="shortcut icon" href="https://static.k12top.com/Common/yunmalogo_new.png" />
+
+    <link href="/Plugin/layui/css/layui.css" rel="stylesheet" />
+    <link href="/Css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="/Css/globalstyle.css" rel="stylesheet" />
+    <link href="/Css/style.css" rel="stylesheet" />
+    <link href="/Css/app/common.css" rel="stylesheet" />
+    <link href="/Plugin/jquery.autocompleter/jquery.autocomplete.css" rel="stylesheet" />
+    <link href="/Css/toggle.css" rel="stylesheet" />
+    <link href="/font/iconfont.css" rel="stylesheet" />
+    <script src="/Scripts/localforage.min.js"></script>
+    <style>
+        .nav-text {
+            margin-left: 10px;
+        }
+
+        .layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+            /*            background-color: #15A0ED !important*/
+        }
+
+        .layui-nav-tree .layui-nav-item a {
+            line-height: 35px;
+        }
+
+        .layui-nav-tree .layui-nav-child a {
+            line-height: 40px;
+        }
+
+
+        .layui-nav .layui-nav-child dd:hover ul {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 95px;
+            background-color: #FFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,.12);
+            border: 1px solid #d2d2d2 !important;
+            border-radius: 2px;
+        }
+
+        .layui-nav .layui-nav-child dd ul {
+            display: none;
+            padding: 0
+        }
+
+            .layui-nav .layui-nav-child dd ul a:hover {
+                background: #F0F0F0;
+            }
+
+        .bg_hover {
+            background-color: #F0F0F0
+        }
+
+        .bg_this {
+            color: #15A0ED !important;
+            background-color: #f2f2f2 !important;
+        }
+
+        .layui-layout-admin .layui-side.pull-top, .layui-layout-admin .layui-body.pull-top {
+            top: 0px !important;
+        }
+
+        .up-head {
+            width: 100%;
+            height: 60px;
+            background: #ffffff;
+            -moz-box-shadow: 0 2px 5px -1px #ddd;
+            box-shadow: 0 2px 5px -1px #ddd;
+        }
+
+            .up-head .up-head-left {
+                margin-left: 30px;
+            }
+
+                .up-head .up-head-left li {
+                    list-style: none;
+                    float: left;
+                }
+
+            .up-head ul {
+                margin: 0;
+                padding: 0;
+            }
+
+                .up-head ul li {
+                    height: 60px;
+                    line-height: 60px;
+                }
+
+            .up-head .logo-img {
+                height: 45px;
+                width: 158px;
+                margin-top: 5px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+        .up-head-right li {
+            font-size: 12px;
+            float: right;
+            list-style: none;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .right-out {
+            position: absolute;
+            top: 62px;
+            right: 8px;
+            background: #ffffff;
+            -moz-box-shadow: -2px 0px 5px 0px #ddd;
+            box-shadow: -2px 0px 5px 0px #ddd;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            width: 80px;
+        }
+
+            .right-out div {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                display: none;
+            }
+
+                .right-out div:hover {
+                    background: #4bb2ff;
+                    cursor: pointer;
+                    color: #fff;
+                }
+
+        .right-out-icon:hover .right-out div {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: block;
+        }
+
+        #logo_Res {
+            color: #c13643;
+        }
+
+        .up-head-img {
+            height: 30px;
+            width: 30px;
+            margin-top: -1px;
+        }
+
+        .layui-layout-admin .layui-logo {
+            color: #14a0ec !important;
+            line-height: 60px !important;
+            font-weight: 800 !important;
+            left: 10px;
+        }
+
+        .username {
+            height: 30px;
+            line-height: 50px;
+            color: #1890ff;
+        }
+
+        .userserilno {
+            /*        width: 80px;*/
+            height: 30px;
+            line-height: 25px;
+            font-size: 12px;
+            color: #ccc;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .ym_logo {
+            height: 50px;
+            float: left;
+            line-height: 60px;
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+
+        .logo-text {
+            text-align: left;
+            line-height: 60px;
+            font-size: 20px;
+            color: #14a0ec;
+            font-weight: 800;
+            cursor: pointer;
+            margin-left: 80px;
+        }
+
+        .layui-nav-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .layui-layout-right {
+            margin-right: 20px !important;
+        }
+    </style>
+</head>
+<body class="layui-layout-body" style="background:#f2f2f2;">
+    <div class="layui-layout layui-layout-admin">
+            <div class="layui-header up-head">
+                    <ul class="up-head-left">
+                        <li>
+                            <a id="btnHost" class="btn-revert" style="cursor: pointer">
+                                <div class="layui-logo" style="background:url('https://static.k12top.com/Common/yunmalogo_new.png') no-repeat 8px center / 42px 45px">
+                                    <label style="cursor:pointer;color:#14a0ec;font-size:20px;">数字校园</label>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                
+
+                <!-- 头部区域（可配合layui已有的水平导航） -->
+                
+                <!-- 头部区域（可配合layui已有的水平导航）-->
+                <ul class="layui-nav layui-layout-right">
+                    <li style="float:left;line-height:60px;margin-right:20px;">
+                        <a href="javascript:;">
+                            <img src="/imgs/funcImg.png" class="layui-nav-img funcImg" id="funcView">
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <div style="float:left;"><img src="#" class="layui-nav-img" id="imgAvatar"></div>
+                            <div style="float:left;">
+                                <div class="username" id="lblUserName"></div>
+                                <div class="userserilno" id="serialNo">——</div>
+                            </div>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javaScript:" id="exit">退出</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+
+            </div>
+
+        <div class="layui-side layui-bg-black  moral-menu">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <div id="flowName" style="height:42px;width:200px;color:#ffffff;background-color:#15A0ED;display:none;font-size:12px;text-align:center;line-height:16px;padding-top:12px;">
+                    <div class="grade"></div>
+                    <div class="semester"></div>
+                </div>
+                <ul class="layui-nav layui-nav-tree" lay-filter="navFilter" style="text-align:left !important" id="menuTree"></ul>
+            </div>
+        </div>
+        <!-- 左侧菜单显隐按钮 -->
+        <div class="toggleMenu  moral-menu">
+            <span class="close">
+                <i class="layui-icon layui-icon-left"></i>
+            </span>
+            <span class="open" style="display:none">
+                <i class="layui-icon layui-icon-right"></i>
+            </span>
+        </div>
+        <div class="layui-body  layui-body-moral">
+            <!-- 内容主体区域 -->
+            <div style="min-width:800px;">
+                
+<link href="/Plugin/layui/css/layui.css" rel="stylesheet" />
+<style type="text/css">
+    .layui-container {
+        width: 100% !important;
+        background-color: white;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+</style>
+<div id="homeIndex" style="background-color: #f2f2f2">
+    <div>
+        <img style="width: 100%" src="/Plugin/image/home/banner.png" />
+    </div>
+    
+
+    
+</div>
+<script src="/Scripts/jquery-1.10.2.min.js"></script>
+<script src="/Plugin/layui/layui.js"></script>
+<script src="/Scripts/layui.common-1.0.0.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+    })
+</script>
+            </div>
+        </div>
+        <div class="fixbar">
+            <div class="bar-item" id="return-top">
+                返回顶部
+            </div>
+            <div class="bar-item" id="map" style="display:none">
+                排课地图
+            </div>
+            <div class="bar-item" id="clear-data" style="display: none">
+                清除数据
+            </div>
+            <div class="bar-item" id="go-bottom">
+                返回底部
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery.cookie-1.4.1.min.js"></script>
+    <script src="/Plugin/layui/layui.js"></script>
+    <script src="/Scripts/layui.common-1.0.0.js"></script>
+    <script src="/Plugin/jquery.autocompleter/jquery.autocompleter.js"></script>
+    <script src="/Scripts/toggle.js"></script>
+    <script src="/Scripts/xm-select.js"></script>
+    <script>
+
+
+
+        //刷新token
+
+        //设置登录权限
+        if (this.getQueryStr('access_token') && this.getQueryStr('refresh_token')) {
+            $.cookie('access_token', this.getQueryStr('access_token'));
+            $.cookie('refresh_token', this.getQueryStr('refresh_token'));
+        }
+
+        //获取url请求参数
+        function getQueryStr(field) {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0].toLowerCase()] = hash[1];
+            }
+
+            if (field) {
+                return vars[field.toLowerCase()];
+            }
+
+            return vars;
+        }
+
+        //获取各种配置的地址
+        var loginUrl = "";
+        var mainPage = "";
+        var portalurl = "";
+        var defaultAvatar = "";
+        $.get("/Moral/MyStudent/GetSettingUrl", {}, function (result) {
+            if (result) {
+                loginUrl = result.LoginUrl;
+                mainPage = result.MainPage;
+                portalurl = result.Portalurl;
+                defaultAvatar=result.DefaultAvatar
+            }
+        }, "json");
+
+        //返回到管理首页
+        $("#btnHost").click(function () {
+            window.location.href = mainPage;//config.mainpage;
+        });
+
+            $("#funcView").click(function () {
+              window.location.href = portalurl;//config.portalurl;
+            });
+        $("#exit").click(function () {
+            
+            window.location.href = "/Login/LoginOut";
+        });
+
+
+
+        //排课任务清除数据
+        function ClearData(taskFlowId, key) {
+            layer.confirm('即将清除本页面及后续流程所有数据, 是否确定?', { icon: 3, title: '提示' }, function (index) {
+                var _openIndex = layer.msg('数据删除中,请稍后', {
+                    icon: 16,
+                    shade: 0.01,
+                    time:0
+                });
+                $.getJSON('/ScheduleFlow/ScheduleTaskFlowDataClear/ClearData', { taskFlowId: taskFlowId, key: key }, function (response) {
+                    if (!response.HasError) {
+                        layer.msg('数据删除成功', {
+                            icon: 1,
+                            time: 2000,
+                            shade: 0.01
+                        },
+                            function () {
+                                window.location.reload();
+                            });
+                    } else {
+                        layer.alert(response.Message, { icon: 2 });
+                    }
+                    layer.close(_openIndex);
+                })
+                layer.close(index);
+            });
+        }
+
+        //动态显示菜单左上角排课年级
+        function showCurrentFLowName() {
+            if(window.flowID){
+                $.ajax({
+                    url: '/ScheduleFlow/ScheduleTaskFlow/GetScheduleTaskFlowDetail',
+                    method: 'get',
+                    data: {
+                        FlowId: window.flowID
+                    },
+                    success: function (data) {
+                        if (!data.HasError) {
+                            var grade = data.Data.EduYearName
+                            var name = data.Data.SemesterName
+                            $('#flowName .grade').text(grade)
+                            $('#flowName .semester').text(name)
+                            $('#flowName').show()
+                        }
+                    },
+                    error: function () { }
+                })
+            }
+        }
+        //加载用户角色列表
+        loadCurrentUserRoles();
+        function loadCurrentUserRoles() {
+            $.getJSON('/Login/LoadUserRoles', {}, function (roles) {
+                $('#currentRole').html();
+                $('#rolesPanel').empty();
+                $('#currentRole').attr('data-rId', '');
+                var _rolestext = '';
+                $(roles).each(function (index, role) {
+                    if (role.IsSelected) {
+                        if (roles.length > 1) {
+                            _rolestext += '<li name="liNav"><a class="bg_this" name="roleItem" style="cursor: pointer;color: #15A0ED !important;" data-rId=${role.RoleId} href="#">${role.RoleName}</a></li>';
+                        }
+                        $('#currentRole').html(role.RoleName);
+                        $('#currentRole').attr('data-rId', role.RoleId);
+                    } else {
+                        if (roles.length > 1)
+                            _rolestext += '<li name="liNav"><a  name="roleItem" style="cursor: pointer" data-rId=${role.RoleId} href="#">${role.RoleName}</a></li>';
+
+                    }
+                })
+                $('#rolesPanel').append(_rolestext)
+            })
+        }
+        //角色切换
+        $('#rolesPanel').on('click', 'a[name="roleItem"]', function (e) {
+            var self = this;
+            var _currentRId = $('#currentRole').attr('data-rId');
+            var _nRId = $(self).attr('data-rId');
+            //if (_nRId== _currentRId)
+            //    return
+                $.post('/Login/RoleChange', { oldRoleId: _currentRId, nRoleId: _nRId }, function (response) {
+                    if (response.HasError) {
+                        layer.msg(response.Message, { icon: 2 });
+                    } else {
+                        //loadCurrentUserRoles();
+                        //window.location.reload();//需要attrbute->无权限->首页||无权限提示页
+                        window.location.href = "/Home/Index";
+                    }
+                })
+        })
+        function showMap() {
+            $('#map').show()
+        }
+        function showClearData() {
+            $('#clear-data').show()
+        }
+
+        $(function () {
+            $('#loginPanel').on('click', 'a[name="navItem"]', function (e) {
+                $(this).parent().removeClass('layui-this')
+            })
+            $('#loginPanel').on('click', 'li[name="liNav"]', function (e) {
+                $(this).removeClass('layui-this')
+            })
+            $('#loginPanel').on('mouseenter ', 'li[name="liNav"]', function (e) {
+                $(this).parent().prev().addClass('bg_hover')//.css("background-color", "#F0F0F0")//background:#F0F0F0
+            })
+            $('#loginPanel').on('mouseleave ', 'li[name="liNav"]', function (e) {
+                $(this).parent().prev().removeClass('bg_hover')
+            })
+            function menuRender() {
+                var urlmap = [
+                    {
+                        src: "/ExamPlan/Exam/Othre",
+                        dest: "/ExamPlan/Exam/Index"
+                    },
+                    {
+                        src: "/ExamPlan/Exam/ExamSetting",
+                        dest: "/ExamPlan/Exam/Index"
+                    }
+                ];
+                var path = window.location.pathname;
+                $(urlmap).each(function () {
+                    var src = this.src;
+                    var dest = this.dest;
+                    if (src == path) {
+                        path = dest;
+                    }
+                });
+
+                var activeNav = null;
+                if (path == "/") {
+                    activeNav = $(".layui-nav [default-page]");
+                } else {
+                    var navList = $(".layui-nav a[href]");
+                    $(navList).each(function () {
+                        var currNav = this;
+                        var url = $(currNav).attr("href");
+                        if (url.indexOf(path) >= 0) {
+                            activeNav = $(currNav);
+                        }
+                    });
+                    if (activeNav == null) {
+                        var prevPath = path.substr(0, path.lastIndexOf('/'))
+                        $(navList).each(function () {
+                            var currNav = this;
+                            var url = $(currNav).attr("href");
+                            if (url.indexOf(prevPath) >= 0) {
+                                activeNav = $(currNav);
+                            }
+                        });
+                    }
+                }
+                if (activeNav != null && activeNav != undefined) {
+                    activeNav.addClass("layui-this");
+                    var pNode = activeNav.parents(".layui-nav-item");
+                    if (pNode != null && pNode != undefined) {
+                        pNode.addClass("layui-nav-itemed");
+                    }
+                }
+            }
+
+            $('#return-top').click(function () {
+                $('.layui-body').animate({ scrollTop: 0 }, 300);
+            })
+            $('#go-bottom').click(function () {
+                var scrollHeight = document.getElementsByClassName('layui-body')[0].scrollHeight;
+                $('.layui-body').animate({ scrollTop: scrollHeight }, 300);
+            })
+            //获取url请求参数
+            function getQueryStr(field) {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0].toLowerCase()] = hash[1];
+                }
+
+                if (field) {
+                    return vars[field.toLowerCase()];
+                }
+
+                return vars;
+            }
+            //JavaScript代码区域
+            layui.use(['element', 'form', 'layer'], function () {
+                var element = layui.element;
+                var layer = layui.layer;
+                //设置菜单项
+                var _menuKey = "_menuKey_moral";
+                var _menuCheck = JSON.parse($.cookie('morallogininfo')).MenuCheck;
+                _menuCheck = "true";
+                if (_menuCheck != "") {
+                    _removeMenuRender();
+                    $.post('/Login/CompareRoleItem', { roleId: 0, indexs: [], appid: getQueryStr('appid') }, function (response) {
+                        if (response.HasError) {
+                            layer.msg(response.Message, { icon: 2 });
+                        } else {
+                            new Promise(function (resolve, reject) {
+                                __menuStore(response);
+                                resolve();
+                            });
+                        }
+                    });
+                }
+                else {
+                    _renderMenu();
+                }
+
+                function __menuStore(response) {
+                    localforage.removeItem(_menuKey).then(function () {
+                        localforage.setItem(_menuKey, response.Data.menus).then(function (value) {
+                            _renderMenu(function () {
+                                //$('.layui-nav-item').addClass('layui-nav-itemed');
+                            });
+                        }).catch(function (err) {
+                            layer.msg(err, { icon: 2 });
+                        });
+                    }).catch(function (err) {
+                        layer.msg(err, { icon: 2 });
+                    });
+                }
+                function _removeMenuRender() {
+                    $.getJSON('/Login/RemoveMenuCheck', {}, function (res) {
+                        if (res.HasError) {
+                            layer.msg(res.Message, { icon: 2 });
+                        }
+                    })
+                }
+                function _renderMenu(callback) {
+                     localforage.getItem(_menuKey).then(function (value) {
+                        if (value == null)
+                            return
+                        //layer.msg('未获取到菜单项', { icon: 2 });
+                        $('#menuTree').empty();
+                        var _tree = '';// class="layui-this"
+                         $(value).each(function (index, module) {
+                             module.IconContent = module.IconContent.substr(1);
+                            if (module.IsDisplay) {
+                                _tree += '<li class="layui-nav-item" data-mId="' + module.Index + '"><a style="line-height:35px" href="' + module.Href + '"><i class="iconfont ' + module.IconContent + '"></i><span class="nav-text">' + module.Title+'</span></a>';
+
+                                if (module.ChildMenus.length > 0) {
+                                    _tree += '<dl class="layui-nav-child" style="background-color:#ffffff !important">';
+                                    $(module.ChildMenus).each(function (index, menu) {
+                                        menu.IconContent = menu.IconContent.substr(1);
+                                        if (menu.IsDisplay) {
+                                            _tree += '<dd><a href="' + menu.Href + '"><i class="iconfont ' + menu.IconContent + '"></i><span class="nav-text">' + menu.Title+'</span></a></dd>';
+                                        }
+                                    })
+                                    _tree += '</dl>';
+                                }
+                                _tree += '</li>';
+                            }
+                        })
+                        $('#menuTree').append(_tree)
+                        menuRender();
+                        _removeMenuRender();
+                        element.render('nav');
+                    }).then(callback).catch(function (err) {
+                        layer.msg(err, { icon: 2 });
+                    });
+                }
+            });
+              $("#updatePassWord").click(function () {
+                 layer.open({
+                    type: 2,
+                    title: "修改密码",
+                    content: "/BasicData/User/Update",
+                    area: ['455px', '255px'],
+                    end: function () {
+                    }
+                });
+            });
+        });
+
+        var refresh_token = getCookie("refresh_token");
+        var access_token = getCookie("access_token");
+
+        $.ajax({
+            type: "GET",
+            url: '/BasicData/User/UserInfo',
+            dataType: "json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("access_token", refresh_token);
+                xhr.setRequestHeader("refresh_token", access_token);
+                xhr.setRequestHeader("Authorization", `Bearer ${access_token}`);
+            },
+            success: function (result) { 
+                if (result && result.code === 0) {
+                    var data = result.data
+                    if (data.avatarUrl && data.avatarUrl != "" && data.avatarUrl != null)
+                        $("#imgAvatar").attr("src", data.avatarUrl)
+                    else
+                        $("#imgAvatar").attr("src", defaultAvatar)
+
+                    $("#lblUserName").html(data.userName + '<svg style="margin-left:2px;" viewBox="64 64 896 896" focusable="false" fill="currentColor" width="0.7em" height="0.7em" data-icon="down" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>');
+                    $("#serialNo").html(data.accountName);
+                }
+            }
+        });
+
+        //获取cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+    </script>
+    
+    <script src="/Scripts/start.js"></script>
+</body>
+</html>

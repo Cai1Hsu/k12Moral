@@ -1,0 +1,36 @@
+﻿.toggleMenu {
+    height: 100%;
+    width: 13px;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+    left: 200px;
+    cursor: pointer;
+    border-radius: 5px;
+    top: 65px;
+}
+
+    .toggleMenu i {
+        font-size: 12px;
+        color: white;
+        position: absolute;
+        left: 0;
+        top: 280px;
+        background-color: #79cdfb;
+        padding: 5px 0px;
+        border-radius: 5px;
+    }
+
+    .toggleMenu:hover {
+        background-color: #ddd;
+    }
+
+    .toggleMenu .close, .toggleMenu .open {
+        display: inline-block;
+        width: 100%
+    }
+
+.layui-layout-body .layui-body {
+    left: 210px;
+    padding-left: 5px;
+}

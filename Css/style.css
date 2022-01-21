@@ -1,0 +1,125 @@
+﻿.layui-layout-admin .layui-header{
+    background-color:#fff !important;
+    color:#000 !important
+}
+.layui-layout-admin .layui-body{
+    top:65px !important
+}
+.layui-layout-admin .layui-side{
+    top:65px !important;
+}
+.layui-side-scroll {
+    background: #fff;
+}
+.layui-nav{
+    background-color:#fff !important;
+    color:#000 !important
+}
+    .layui-nav .layui-nav-item a{
+        color:#333333 !important;
+    }
+.layui-nav-tree .layui-nav-item a:hover{
+    background-color:#f2f2f2 !important;
+    color:#15A0ED !important
+}
+.layui-nav-itemed > .layui-nav-child {
+    background-color: transparent !important
+}
+.layui-nav a.layui-this {
+    color: #15A0ED !important;
+    background-color:#f2f2f2 !important
+}
+.layui-nav-tree .layui-this::before {
+    content: '';
+    width: 8px;
+    height: 45px;
+    background-color: #15a0ed;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.layui-nav-tree .layui-nav-bar{
+    background-color:#15A0ED !important
+}
+
+.layui-btn {
+    margin: 5px 10px 5px 0 !important
+}
+    .layui-btn + .layui-btn {
+        margin-left: 0 !important
+    }
+
+.layui-elem-quote-left {
+    height:50px;
+    line-height:50px;
+    background-color:#fff;
+    padding-left:15px;
+}
+.layui-breadcrumb a{
+    color:#333333 !important;
+}
+.content-area {
+    background-color: #fff;
+    margin-top: 5px;
+    padding: 10px;
+}
+.btn-area{
+    margin-bottom:10px;
+}
+.layui-table-view{
+    border-style:none;
+    background:#fff;
+}
+.layui-table thead tr {
+    background-color: transparent !important
+}
+
+.layui-table-header{
+    border-width:0 0 2px;
+    border-color:#15A0ED
+}
+.layui-laypage .layui-laypage-curr .layui-laypage-em{
+    background-color:#15A0ED
+}
+.layui-form-radio > i:hover, .layui-form-radioed > i{
+    color:#15A0ED
+}
+.layui-form-radio {
+    margin:0
+}
+.layui-form-onswitch {
+    border-color: #15A0ED;
+    background-color: #15A0ED
+}
+.layui-tab-brief > .layui-tab-title .layui-this{
+    color:#15A0ED
+}
+.layui-tab-brief > .layui-tab-more li.layui-this:after, .layui-tab-brief > .layui-tab-title .layui-this:after {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #15A0ED;
+}
+.layui-form-select dl dd.layui-this{
+    background-color:#15A0ED !important
+}
+.icon_tip {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #999999
+}
+    .icon_tip i {
+        pointer-events:none
+    }
+    .tip-content {
+        color: #999999
+    }
+.icon_tip_content_style{
+    background-color:red
+}
+.layui-table-view .layui-table{
+    width:100%
+}
+
+.layui-layout-admin .layui-body{
+    bottom:0
+}
